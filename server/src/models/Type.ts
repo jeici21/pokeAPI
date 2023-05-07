@@ -1,7 +1,5 @@
 import { pool } from "..";
 
-export type TType = { nombre: string, img: string }
-
 export const createTypeTable = async () => {
     const client = await pool.connect();
 
