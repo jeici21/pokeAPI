@@ -21,7 +21,7 @@ export const createPokemonTable = async () => {
                 descripcion VARCHAR(255) NOT NULL,
                 tipo1 INTEGER REFERENCES Tipo(id) NOT NULL,
                 tipo2 INTEGER REFERENCES Tipo(id),
-                evolucion VARCHAR(255) NOT NULL,
+                evolucion VARCHAR(255),
                 altura NUMERIC(4,1) NOT NULL,
                 peso NUMERIC(4,1) NOT NULL,
                 img VARCHAR(255) NOT NULL
