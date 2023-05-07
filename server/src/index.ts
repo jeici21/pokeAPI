@@ -4,6 +4,7 @@ import cors from "cors"
 import { Pool } from "pg";
 import { createTypeTable } from "./models/Type";
 import { createPokemonTable } from "./models/Pokemon";
+import { getAllPokemonController } from "./controllers/getAllPokemonController";
 
 config()
 const app = express()
@@ -18,6 +19,8 @@ export const pool = new Pool({
 
 app.use(cors({ origin: "*" }));
 app.use(express.json());
+
+app.get("/pokemon", getAllPokemonController)
 
 pool.connect().then(async () => {
     console.log(`Servidor escuchando en el puerto ${PORT}`);
