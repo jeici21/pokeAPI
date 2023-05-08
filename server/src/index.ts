@@ -21,8 +21,8 @@ export const pool = new Pool({
 app.use(cors({ origin: "*" }));
 app.use(express.json());
 
-app.get("/pokemon", getAllPokemonController)
-app.get("/pokemon/:pokemonId", getPokemonController)
+app.get("/", getAllPokemonController)
+app.get("/:pokemonId", getPokemonController)
 
 pool.connect().then(async () => {
     console.log(`Servidor escuchando en el puerto ${PORT}`);

@@ -14,21 +14,30 @@
   -webkit-text-size-adjust: 100%;
 }
 
+body {
+  margin-top: 80px;
+}
+
+nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #202020;
+  padding: 10px 20px;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {
@@ -47,9 +56,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -60,10 +71,22 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    margin-top: 185px;
+  }
+
+  nav {
+    flex-direction: column;
   }
 }
