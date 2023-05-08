@@ -5,7 +5,7 @@ export type TPokemon = {
     descripcion: string,
     tipo1: string,
     tipo2?: string,
-    evolucion: string,
+    evolucion?: string,
     altura: number,
     peso: number,
     img: string
