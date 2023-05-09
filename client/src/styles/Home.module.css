@@ -1,0 +1,28 @@
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.spinner {
+    animation: spin 1s linear infinite;
+    height: 10%;
+    width: 10%;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.allPokemon {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.allPokemon li {
+    flex-basis: "33.33%"
+}
