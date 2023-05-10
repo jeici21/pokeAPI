@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { TPokemon } from "../api/config"
 import { getAllPokemon } from "../api/getAllPokemon"
 import styles from '../styles/Home.module.css'
 import { FaSpinner } from 'react-icons/fa'
+import { SearchContext } from "./SearchContext"
 
 const Home = () => {
     const [allPokemon, setAllPokemon] = useState<TPokemon[]>([])
     const [currentPage, setCurrentPage] = useState(1)
     const [isLoading, setIsLoading] = useState(true)
+    const { searchTerm } = useContext(SearchContext);
 
     useEffect(() => {
         const fetchAllPokemon = async () => {
@@ -21,7 +23,9 @@ const Home = () => {
     // Obtener el índice de inicio y fin de los elementos que se muestran en la página actual
     const indexOfLastPokemon = currentPage * 10
     const indexOfFirstPokemon = indexOfLastPokemon - 10
-    const currentPokemon = allPokemon.slice(indexOfFirstPokemon, indexOfLastPokemon)
+    const currentPokemon = allPokemon.filter(pokemon =>
+        pokemon.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+    ).slice(indexOfFirstPokemon, indexOfLastPokemon)
 
     // Calcular el número total de páginas
     const totalPages = Math.ceil(allPokemon.length / 10)

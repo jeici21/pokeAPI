@@ -1,14 +1,21 @@
 import { NavLink } from "react-router-dom"
 import logo from '../assets/pokeapi.png'
 import styles from '../styles/Navbar.module.css'
+import { useContext } from "react";
+import { SearchContext } from "./SearchContext";
 
 const Navbar = () => {
-    
+    const { searchTerm, setSearchTerm } = useContext(SearchContext);
+
+    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchTerm(e.target.value);
+    };
+
     return (
         <nav>
             <NavLink to="/"><img src={logo} alt="logo" className={styles.logo} /></NavLink>
             <form action="/" method="get" className={styles.form}>
-                <input type="text" id="header-search" placeholder="Buscar pokémon" />
+                <input type="text" placeholder="Buscar pokémon" value={searchTerm} onChange={handleSearch} />
                 <button type="submit">Search</button>
             </form>
             <div className={styles.links}>
