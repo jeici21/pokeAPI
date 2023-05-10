@@ -6,10 +6,7 @@ import { SearchContext } from "./SearchContext";
 
 const Navbar = () => {
     const { searchTerm, setSearchTerm } = useContext(SearchContext);
-
-    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchTerm(e.target.value);
-    };
+    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value);
 
     return (
         <nav>

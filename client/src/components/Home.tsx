@@ -20,11 +20,9 @@ const Home = () => {
         fetchAllPokemon()
     }, [])
 
-    // Obtener el índice de inicio y fin de los elementos que se muestran en la página actual
     const indexOfLastPokemon = currentPage * 10
     const indexOfFirstPokemon = indexOfLastPokemon - 10
-    const currentPokemon = allPokemon.filter(pokemon =>
-        pokemon.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+    const currentPokemon = allPokemon.filter(pokemon => pokemon.nombre.toLowerCase().includes(searchTerm.toLowerCase())
     ).slice(indexOfFirstPokemon, indexOfLastPokemon)
 
     // Calcular el número total de páginas
