@@ -7,7 +7,6 @@ import { FaSpinner } from 'react-icons/fa'
 const Home = () => {
     const [allPokemon, setAllPokemon] = useState<TPokemon[]>([])
     const [currentPage, setCurrentPage] = useState(1)
-    const [pokemonPerPage] = useState(10)
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
@@ -20,43 +19,41 @@ const Home = () => {
     }, [])
 
     // Obtener el índice de inicio y fin de los elementos que se muestran en la página actual
-    const indexOfLastPokemon = currentPage * pokemonPerPage
-    const indexOfFirstPokemon = indexOfLastPokemon - pokemonPerPage
+    const indexOfLastPokemon = currentPage * 10
+    const indexOfFirstPokemon = indexOfLastPokemon - 10
     const currentPokemon = allPokemon.slice(indexOfFirstPokemon, indexOfLastPokemon)
 
     // Calcular el número total de páginas
-    const totalPages = Math.ceil(allPokemon.length / pokemonPerPage)
+    const totalPages = Math.ceil(allPokemon.length / 10)
 
     // Función para avanzar a la siguiente página
     const nextPage = () => {
-        if (currentPage < totalPages) {
-            setCurrentPage(currentPage + 1)
-        }
+        if (currentPage < totalPages) setCurrentPage(currentPage + 1)
     }
 
     // Función para retroceder a la página anterior
     const prevPage = () => {
-        if (currentPage > 1) {
-            setCurrentPage(currentPage - 1)
-        }
+        if (currentPage > 1) setCurrentPage(currentPage - 1)
     }
 
     return (
         <div>
             {isLoading ? <div className={styles.loading}><FaSpinner className={styles.spinner} /></div> : (
-                <div>
+                <div className={styles.home}>
                     <h1>Lista de Pokémon</h1>
                     <ul className={styles.allPokemon}>
-                        {currentPokemon.map((pokemon) => (
-                            <li key={pokemon.id}>
+                        {currentPokemon.map(pokemon => (
+                            <li key={pokemon.id} className={parseInt(pokemon.id) % 3 === 0 ? styles.lastInRow : ""}>
                                 <img src={pokemon.img} alt="Imagen pokémon" />
-                                <h4>{pokemon.nombre}</h4>
-                                <p>{pokemon.descripcion}</p>
-                                <button>Más detalles</button>
+                                <div>
+                                    <h2>{pokemon.nombre}</h2>
+                                    <p>{pokemon.descripcion}</p>
+                                    <button>Más detalles</button>
+                                </div>
                             </li>
                         ))}
                     </ul>
-                    <div>
+                    <div className={styles.pageButtons}>
                         <button onClick={prevPage} disabled={currentPage === 1}>Anterior</button>
                         <button onClick={nextPage} disabled={currentPage === totalPages}>Siguiente</button>
                     </div>

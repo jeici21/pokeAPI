@@ -21,8 +21,28 @@
     display: flex;
     flex-wrap: wrap;
     list-style: none;
+    justify-content: space-around;
+    gap: 10px;
 }
 
 .allPokemon li {
-    flex-basis: "33.33%"
+    flex-basis: 30%;
+    border: 1px solid white;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.allPokemon li.lastInRow {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.allPokemon li img {
+    margin-bottom: -30px;
+}
+
+.home .pageButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

@@ -3,6 +3,7 @@ import logo from '../assets/pokeapi.png'
 import styles from '../styles/Navbar.module.css'
 
 const Navbar = () => {
+    
     return (
         <nav>
             <NavLink to="/"><img src={logo} alt="logo" className={styles.logo} /></NavLink>
