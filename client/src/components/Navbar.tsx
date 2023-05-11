@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom"
 import logo from '../assets/pokeapi.png'
 import styles from '../styles/Navbar.module.css'
-import { useContext } from "react";
+import { ChangeEvent, useContext } from "react";
 import { SearchContext } from "./SearchContext";
 
 const Navbar = () => {
     const { searchTerm, setSearchTerm } = useContext(SearchContext);
-    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value);
+    const handleSearch = (e: ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value);
 
     return (
         <nav>

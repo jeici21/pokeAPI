@@ -22,7 +22,8 @@ const Home = () => {
 
     const indexOfLastPokemon = currentPage * 10
     const indexOfFirstPokemon = indexOfLastPokemon - 10
-    const currentPokemon = allPokemon.filter(pokemon => pokemon.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+    const currentPokemon = allPokemon.filter(pokemon =>
+        pokemon.nombre.toLowerCase().includes(searchTerm.toLowerCase())
     ).slice(indexOfFirstPokemon, indexOfLastPokemon)
 
     // Calcular el número total de páginas
@@ -45,7 +46,8 @@ const Home = () => {
                     <h1>Lista de Pokémon</h1>
                     <ul className={styles.allPokemon}>
                         {currentPokemon.map(pokemon => (
-                            <li key={pokemon.id} className={parseInt(pokemon.id) % 3 === 0 ? styles.lastInRow : ""}>
+                            <li key={pokemon.id}
+                                className={parseInt(pokemon.id) % 3 === 0 ? styles.lastInRow : ""}>
                                 <img src={pokemon.img} alt="Imagen pokémon" />
                                 <div>
                                     <h2>{pokemon.nombre}</h2>
