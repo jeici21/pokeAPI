@@ -41,7 +41,19 @@
     margin-bottom: -30px;
 }
 
-.home .pageButtons {
+.types {
+    text-align: center;
+    margin-top: -15px;
+}
+
+.types .type1,
+.types .type2 {
+    height: 30px;
+    width: 120px;
+    margin: 0 5px;
+}
+
+.pageButtons {
     display: flex;
     align-items: center;
     justify-content: center;

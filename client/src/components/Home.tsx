@@ -51,7 +51,10 @@ const Home = () => {
                                 <img src={pokemon.img} alt="Imagen pokémon" />
                                 <div>
                                     <h2>{pokemon.nombre}</h2>
-                                    <p>{pokemon.descripcion}</p>
+                                    <div className={styles.types}>
+                                        <img src={pokemon.tipo1} alt="Tipo 1" className={styles.type1} />
+                                        {pokemon.tipo2 && <img src={pokemon.tipo2} alt="Tipo 2" className={styles.type2} />}
+                                    </div>
                                     <button>Más detalles</button>
                                 </div>
                             </li>
