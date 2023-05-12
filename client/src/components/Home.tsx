@@ -4,12 +4,15 @@ import { getAllPokemon } from "../api/getAllPokemon"
 import styles from '../styles/Home.module.css'
 import { FaSpinner } from 'react-icons/fa'
 import { SearchContext } from "./SearchContext"
+import PokemonDetails from "./PokemonDetails"
 
 const Home = () => {
     const [allPokemon, setAllPokemon] = useState<TPokemon[]>([])
     const [currentPage, setCurrentPage] = useState(1)
     const [isLoading, setIsLoading] = useState(true)
     const { searchTerm } = useContext(SearchContext);
+    const [selectedPokemon, setSelectedPokemon] = useState<TPokemon | null>(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
         const fetchAllPokemon = async () => {
@@ -39,23 +42,37 @@ const Home = () => {
         if (currentPage > 1) setCurrentPage(currentPage - 1)
     }
 
+    // Función para abrir el modal y establecer el Pokémon seleccionado
+    const openModal = (pokemon: TPokemon) => {
+        setSelectedPokemon(pokemon);
+        setIsModalOpen(true);
+    };
+
+    // Función para cerrar el modal
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
+
     return (
         <div>
-            {isLoading ? <div className={styles.loading}><FaSpinner className={styles.spinner} /></div> : (
+            {isLoading ? (
+                <div className={styles.loading}><FaSpinner className={styles.spinner} /></div>
+            ) : (
                 <div className={styles.home}>
                     <h1>Lista de Pokémon</h1>
                     <ul className={styles.allPokemon}>
                         {currentPokemon.map(pokemon => (
                             <li key={pokemon.id}
                                 className={parseInt(pokemon.id) % 3 === 0 ? styles.lastInRow : ""}>
-                                <img src={pokemon.img} alt="Imagen pokémon" />
+                                <img src={pokemon.img} alt="Imagen pokémon" className={styles.pokemon} />
                                 <div>
                                     <h2>{pokemon.nombre}</h2>
                                     <div className={styles.types}>
                                         <img src={pokemon.tipo1} alt="Tipo 1" className={styles.type1} />
-                                        {pokemon.tipo2 && <img src={pokemon.tipo2} alt="Tipo 2" className={styles.type2} />}
+                                        {pokemon.tipo2 && <img src={pokemon.tipo2} alt="Tipo 2"
+                                            className={styles.type2} />}
                                     </div>
-                                    <button>Más detalles</button>
+                                    <button onClick={() => openModal(pokemon)}>Más detalles</button>
                                 </div>
                             </li>
                         ))}
@@ -64,6 +81,9 @@ const Home = () => {
                         <button onClick={prevPage} disabled={currentPage === 1}>Anterior</button>
                         <button onClick={nextPage} disabled={currentPage === totalPages}>Siguiente</button>
                     </div>
+                    {selectedPokemon && (
+                        <PokemonDetails pokemon={selectedPokemon} isOpen={isModalOpen} onClose={closeModal} />
+                    )}
                 </div>
             )}
         </div>

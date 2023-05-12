@@ -37,7 +37,7 @@
     margin-left: auto;
 }
 
-.allPokemon li img {
+.allPokemon li .pokemon {
     margin-bottom: -30px;
 }
 
