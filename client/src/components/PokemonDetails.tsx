@@ -2,9 +2,9 @@ import Modal from 'react-modal'
 import { TPokemon } from '../api/config';
 import styles from '../styles/PokemonDetails.module.css'
 
-interface PokemonModalProps { pokemon: TPokemon; isOpen: boolean; onClose: () => void }
+interface PokemonDetailsProps { pokemon: TPokemon; isOpen: boolean; onClose: () => void }
 
-const PokemonDetails = ({ pokemon, isOpen, onClose }: PokemonModalProps) => {
+const PokemonDetails = ({ pokemon, isOpen, onClose }: PokemonDetailsProps) => {
     return (
         <Modal isOpen={isOpen} onRequestClose={onClose} contentLabel="Detalles del Pokémon"
             className={styles.modal}>

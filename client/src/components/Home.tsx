@@ -54,7 +54,7 @@ const Home = () => {
     };
 
     return (
-        <div>
+        <div className={styles.homeContainer}>
             {isLoading ? (
                 <div className={styles.loading}><FaSpinner className={styles.spinner} /></div>
             ) : (
@@ -62,8 +62,7 @@ const Home = () => {
                     <h1>Lista de Pokémon</h1>
                     <ul className={styles.allPokemon}>
                         {currentPokemon.map(pokemon => (
-                            <li key={pokemon.id}
-                                className={parseInt(pokemon.id) % 10 === 0 ? styles.lastInRow : ""}>
+                            <li key={pokemon.id}>
                                 <img src={pokemon.img} alt="Imagen pokémon" className={styles.pokemon} />
                                 <div>
                                     <h2>{pokemon.nombre}</h2>

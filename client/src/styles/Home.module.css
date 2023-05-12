@@ -18,23 +18,17 @@
 }
 
 .allPokemon {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+    grid-gap: 10px;
     list-style: none;
-    justify-content: space-around;
-    gap: 10px;
+    margin-left: -35px;
 }
 
 .allPokemon li {
-    flex-basis: 30%;
     border: 1px solid white;
     border-radius: 10px;
     text-align: center;
-}
-
-.allPokemon li.lastInRow {
-    margin-right: auto;
-    margin-left: auto;
 }
 
 .allPokemon li .pokemon {
@@ -61,4 +55,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media screen and (max-width: 767px) {
+    .allPokemon {
+        grid-template-columns: repeat(auto-fit, minmax(49%, 1fr));
+    }
+}
+
+@media screen and (max-width: 468px) {
+    .allPokemon {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    }
 }
