@@ -1,3 +1,11 @@
 .modal {
     background: #272727;
+    width: 50%;
+    height: 50%;
+    position: relative;
+    margin: 100px auto;
+}
+
+.modal h2 {
+    text-align: center;
 }

@@ -8,8 +8,7 @@ const PokemonDetails = ({ pokemon, isOpen, onClose }: PokemonModalProps) => {
     return (
         <Modal isOpen={isOpen} onRequestClose={onClose} contentLabel="Detalles del Pokémon"
             className={styles.modal}>
-            <h2>{pokemon.nombre}</h2>
-            <p>ID: {pokemon.id}</p>
+            <h2>{pokemon.id}. {pokemon.nombre}</h2>
             <p>Tipo 1: {pokemon.tipo1}</p>
             {pokemon.tipo2 && <p>Tipo 2: {pokemon.tipo2}</p>}
             <p>{pokemon.descripcion}</p>

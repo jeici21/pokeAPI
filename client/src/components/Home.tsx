@@ -63,7 +63,7 @@ const Home = () => {
                     <ul className={styles.allPokemon}>
                         {currentPokemon.map(pokemon => (
                             <li key={pokemon.id}
-                                className={parseInt(pokemon.id) % 3 === 0 ? styles.lastInRow : ""}>
+                                className={parseInt(pokemon.id) % 10 === 0 ? styles.lastInRow : ""}>
                                 <img src={pokemon.img} alt="Imagen pokémon" className={styles.pokemon} />
                                 <div>
                                     <h2>{pokemon.nombre}</h2>
