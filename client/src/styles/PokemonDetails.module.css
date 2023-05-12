@@ -45,3 +45,25 @@
     width: 120px;
     margin: 0 5px;
 }
+
+@media screen and (max-width: 768px) {
+    .columna {
+        flex-direction: column;
+    }
+
+    .fila1 {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+
+    .pokemon {
+        width: 50%;
+        height: 50%;
+        margin-bottom: -30px;
+    }
+
+    .fila2 button {
+        margin-bottom: 5px;
+    }
+}
