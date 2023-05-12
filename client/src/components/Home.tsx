@@ -72,7 +72,9 @@ const Home = () => {
                                         {pokemon.tipo2 && <img src={pokemon.tipo2} alt="Tipo 2"
                                             className={styles.type2} />}
                                     </div>
-                                    <button onClick={() => openModal(pokemon)}>Más detalles</button>
+                                    <button onClick={() => openModal(pokemon)} className={styles.detalles}>
+                                        Más detalles
+                                    </button>
                                 </div>
                             </li>
                         ))}

@@ -46,11 +46,15 @@
     margin-top: -15px;
 }
 
-.types .type1,
-.types .type2 {
+.type1,
+.type2 {
     height: 30px;
     width: 120px;
     margin: 0 5px;
+}
+
+.detalles {
+    margin-bottom: 5px;
 }
 
 .pageButtons {
