@@ -5,14 +5,15 @@ INSERT INTO tipo (nombre, img) VALUES (
 
 SELECT * FROM tipo;
 
-INSERT INTO Pokemon (nombre, descripcion, tipo1, tipo2, altura, peso, img) VALUES (
-    'Butterfree',
-    'Aletea a gran velocidad para lanzar al aire sus escamas extremadamente tóxicas.',
-    12,
-    10,
-    1.1,
-    32.0,
-    'https://archives.bulbagarden.net/media/upload/7/7c/Spr_5b_012_m.png'
+INSERT INTO Pokemon (nombre, descripcion, tipo1, tipo2, evolucion, altura, peso, img) VALUES (
+    'Arbok',
+    'Se han llegado a identificar hasta seis variaciones distintas de los espeluznantes dibujos de su piel.',
+    8,
+    NULL,
+    NULL,
+    3.5,
+    65.0,
+    'https://archives.bulbagarden.net/media/upload/0/00/Spr_5b2_024.png'
 );
 
 SELECT * FROM pokemon;

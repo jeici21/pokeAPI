@@ -55,9 +55,7 @@ const Home = () => {
 
     return (
         <div className={styles.homeContainer}>
-            {isLoading ? (
-                <div className={styles.loading}><FaSpinner className={styles.spinner} /></div>
-            ) : (
+            {isLoading ? <div className={styles.loading}><FaSpinner className={styles.spinner} /></div> : (
                 <div className={styles.home}>
                     <h1>Lista de Pokémon</h1>
                     <ul className={styles.allPokemon}>

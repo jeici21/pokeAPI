@@ -19,6 +19,8 @@ const PokemonDetails = ({ pokemon, isOpen, onClose }: PokemonDetailsProps) => {
                         {pokemon.tipo2 && <img src={pokemon.tipo2} alt="Tipo 2" className={styles.type2} />}
                     </div>
                     <p>{pokemon.descripcion}</p>
+                    <p><b>Altura: </b>{pokemon.altura}</p>
+                    <p><b>Peso: </b>{pokemon.peso}</p>
                     <p><b>Evoluciona en: </b>{pokemon.evolucion ?? "-"}</p>
                     <button onClick={onClose}>Cerrar</button>
                 </div>
