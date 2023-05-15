@@ -63,7 +63,7 @@ const Home = () => {
                             <li key={pokemon.id}>
                                 <img src={pokemon.img} alt="Imagen pokémon" className={styles.pokemon} />
                                 <div>
-                                    <h2>{pokemon.nombre}</h2>
+                                    <h2>{pokemon.id}. {pokemon.nombre}</h2>
                                     <div className={styles.types}>
                                         <img src={pokemon.tipo1} alt="Tipo 1" className={styles.type1} />
                                         {pokemon.tipo2 && <img src={pokemon.tipo2} alt="Tipo 2"
