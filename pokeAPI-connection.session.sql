@@ -6,19 +6,18 @@ INSERT INTO tipo (nombre, img) VALUES (
 SELECT * FROM tipo;
 
 INSERT INTO Pokemon (nombre, descripcion, tipo1, tipo2, evolucion, altura, peso, img) VALUES (
-    'Golduck',
-    'Cuando nada a toda velocidad usando sus largas extremidades palmeadas, su frente comienza a brillar.',
-    3,
+    'Mew',
+    'Si se observa a través de un microscopio, puede distinguirse cuán corto, fino y delicado es el pelaje de este Pokémon.',
+    11,
     null,
     null,
-    1.7,
-    76.6,
-    'https://archives.bulbagarden.net/media/upload/9/97/Spr_5b_055.png'
+    0.4,
+    4.0,
+    'https://archives.bulbagarden.net/media/upload/4/43/Spr_5b_151.png'
 );
 
 SELECT * FROM pokemon;
 
-UPDATE pokemon set id = 54 where id = 55;
-delete FROM pokemon where id = 53;
-SELECT pg_get_serial_sequence('Pokemon', 'id');
-SELECT setval('pokemon_id_seq', 54);
+UPDATE pokemon 
+SET evolucion = null
+WHERE id = 82;
