@@ -2,6 +2,15 @@ import { Request, Response } from "express";
 import { pool } from "..";
 import { TPokemon } from "../models/Pokemon";
 
+/**
+ * @swagger
+ * /:
+ *   get:
+ *     summary: Obtener todos los Pokémon registrados.
+ *     responses:
+ *       200:
+ *         description: Retorna la lista de Pokémon.
+ */
 export async function getAllPokemonController(req: Request, res: Response) {
     try {
         const { rows } = await pool.query<TPokemon>(`SELECT Pokemon.id, Pokemon.nombre, Pokemon.descripcion, 

@@ -5,6 +5,7 @@ import { Pool } from "pg";
 import { createTypeTable } from "./models/Type";
 import { createPokemonTable } from "./models/Pokemon";
 import { getAllPokemonController } from "./controllers/getAllPokemonController";
+import swaggerConfig from './swagger-config';
 
 config()
 const app = express()
@@ -19,6 +20,8 @@ export const pool = new Pool({
 
 app.use(cors({ origin: "*" }));
 app.use(express.json());
+
+swaggerConfig(app);
 
 app.get("/", getAllPokemonController)
 
