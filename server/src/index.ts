@@ -20,7 +20,6 @@ export const pool = new Pool({
 
 app.use(cors({ origin: "*" }));
 app.use(express.json());
-
 swaggerConfig(app);
 
 app.get("/", getAllPokemonController)
